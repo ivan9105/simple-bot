@@ -1,0 +1,19 @@
+group 'simple-bot'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.4'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
