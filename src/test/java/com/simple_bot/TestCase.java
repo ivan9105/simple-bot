@@ -1,15 +1,15 @@
 package com.simple_bot;
 
 import com.simple_bot.app.AppContext;
+import org.junit.Before;
 
 /**
  * @author Иван
  * @version $Id$
  */
-public class App {
-    public static void main(String[] args) {
+public class TestCase {
+    @Before
+    public void setUp() {
         AppContext.startContext();
-
-
     }
 }

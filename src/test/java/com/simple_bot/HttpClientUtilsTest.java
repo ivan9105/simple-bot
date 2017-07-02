@@ -4,6 +4,6 @@ package com.simple_bot;
  * @author Иван
  * @version $Id$
  */
-public class HttpClientUtilsTest {
+public class HttpClientUtilsTest extends TestCase {
 
 }
