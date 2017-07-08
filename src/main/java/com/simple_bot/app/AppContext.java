@@ -18,10 +18,17 @@ public class AppContext {
     public static void startContext() {
         CookieHandler.setDefault(new CookieManager());
         propertiesMap.putAll(PropertiesUtils.loadHeaderProperties());
+        propertiesMap.putAll(PropertiesUtils.loadHttpProperties());
     }
 
     @Nullable
     public static String getProperty(String name) {
         return propertiesMap.get(name);
+    }
+
+    public static void setProperty(String name, String value) {
+        if (propertiesMap.get(name) != null) {
+            propertiesMap.put(name, value);
+        }
     }
 }

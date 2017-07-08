@@ -1,5 +1,6 @@
 package com.simple_bot.utils.http;
 
+import com.simple_bot.app.AppContext;
 import org.apache.http.NameValuePair;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class HttpRequestContext {
     private String cookies;
     private List<NameValuePair> params;
     private Map<String, String> headers;
+    private boolean log;
 
     public String getUrl() {
         return url;
@@ -45,6 +47,14 @@ public class HttpRequestContext {
 
     public void setHeaders(Map<String, String> headers) {
         this.headers = headers;
+    }
+
+    public boolean isLog() {
+        return log;
+    }
+
+    public void setLog(boolean log) {
+        this.log = log;
     }
 
     public static class Builder {
@@ -79,6 +89,7 @@ public class HttpRequestContext {
             context.setHeaders(headers);
             context.setParams(params);
             context.setUrl(url);
+            context.setLog(Boolean.valueOf(AppContext.getProperty("http.logging")));
             return context;
         }
     }
