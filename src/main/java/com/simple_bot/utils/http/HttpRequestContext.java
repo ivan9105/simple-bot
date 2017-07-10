@@ -16,6 +16,7 @@ public class HttpRequestContext {
     private List<NameValuePair> params;
     private Map<String, String> headers;
     private boolean log;
+    private boolean report;
 
     public String getUrl() {
         return url;
@@ -57,6 +58,14 @@ public class HttpRequestContext {
         this.log = log;
     }
 
+    public boolean isReport() {
+        return report;
+    }
+
+    public void setReport(boolean report) {
+        this.report = report;
+    }
+
     public static class Builder {
         private String url;
         private String cookies;
@@ -90,7 +99,30 @@ public class HttpRequestContext {
             context.setParams(params);
             context.setUrl(url);
             context.setLog(Boolean.valueOf(AppContext.getProperty("http.logging")));
+            context.setReport(Boolean.valueOf(AppContext.getProperty("http.report")));
             return context;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HttpRequestContext context = (HttpRequestContext) o;
+
+        if (!url.equals(context.url)) return false;
+        if (cookies != null ? !cookies.equals(context.cookies) : context.cookies != null) return false;
+        if (params != null ? !params.equals(context.params) : context.params != null) return false;
+        return !(headers != null ? !headers.equals(context.headers) : context.headers != null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = url.hashCode();
+        result = 31 * result + (cookies != null ? cookies.hashCode() : 0);
+        result = 31 * result + (params != null ? params.hashCode() : 0);
+        result = 31 * result + (headers != null ? headers.hashCode() : 0);
+        return result;
     }
 }

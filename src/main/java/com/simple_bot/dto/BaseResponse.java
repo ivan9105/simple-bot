@@ -1,5 +1,7 @@
 package com.simple_bot.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,6 +12,7 @@ public class BaseResponse {
     private String content;
     private Integer code;
     private Map<String, String> headers;
+    private List<String> cookies = new ArrayList<>();
 
     public BaseResponse(String content) {
         this.content = content;
@@ -48,5 +51,13 @@ public class BaseResponse {
 
     public void setHeaders(Map<String, String> cookies) {
         this.headers = cookies;
+    }
+
+    public List<String> getCookies() {
+        return cookies;
+    }
+
+    public void setCookies(List<String> cookies) {
+        this.cookies = cookies;
     }
 }

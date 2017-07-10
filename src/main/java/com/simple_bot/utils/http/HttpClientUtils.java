@@ -8,16 +8,20 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.message.BasicNameValuePair;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -29,6 +33,11 @@ public class HttpClientUtils {
     private static final String ACCEPT = "Accept";
     private static final String LANGUAGE = "Accept-Language";
     private static final String COOKIE = "Cookie";
+
+    private static final String INPUT_ELEMENT = "input";
+    private static final String NAME_ATTR = "name";
+    private static final String VALUE_ATTR = "value";
+    private static final String ID = "id";
 
     public static BaseResponse doPost(HttpRequestContext context) throws IOException {
         if (context.isLog()) {
@@ -54,6 +63,31 @@ public class HttpClientUtils {
 
         HttpGet request = (HttpGet) getRequest(context, HttpGet.class);
         return execute(request, context);
+    }
+
+    public static List<NameValuePair> getFormParams(String html, Map<String, String> params, String formId) {
+        List<NameValuePair> res = new ArrayList<>();
+
+        Document doc = Jsoup.parse(html);
+        Element form = doc.getElementById(formId);
+        Elements inputElements = form.getElementsByTag(INPUT_ELEMENT);
+
+        for (Element inputElement : inputElements) {
+            String key = inputElement.attr(NAME_ATTR);
+            String id = inputElement.id();
+            String value = inputElement.attr(VALUE_ATTR);
+
+            if (params.get(key) != null) {
+                value = params.get(key);
+                res.add(new BasicNameValuePair(key, value));
+            } else if (params.get(id) != null) {
+                value = params.get(id);
+                res.add(new BasicNameValuePair(id, value));
+            } else {
+                res.add(new BasicNameValuePair(key, value));
+            }
+        }
+        return res;
     }
 
     private static BaseResponse execute(HttpRequestBase request, HttpRequestContext context) throws IOException {
