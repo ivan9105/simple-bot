@@ -37,7 +37,12 @@ public class HttpClientUtils {
     private static final String INPUT_ELEMENT = "input";
     private static final String NAME_ATTR = "name";
     private static final String VALUE_ATTR = "value";
-    private static final String ID = "id";
+
+    public static final String COOKIE_HEADER = "Set-Cookie";
+    public static final String HOST = "Host";
+    public static final String CONNECTION = "Connection";
+    public static final String REFERRER = "Referer";
+    public static final String CONTENT_TYPE = "Content-Type";
 
     public static BaseResponse doPost(HttpRequestContext context) throws IOException {
         if (context.isLog()) {
@@ -65,8 +70,8 @@ public class HttpClientUtils {
         return execute(request, context);
     }
 
-    public static List<NameValuePair> getFormParams(String html, Map<String, String> params, String formId) {
-        List<NameValuePair> res = new ArrayList<>();
+    public static Set<NameValuePair> getFormParams(String html, Map<String, String> params, String formId) {
+        Set<NameValuePair> res = new LinkedHashSet<>();
 
         Document doc = Jsoup.parse(html);
         Element form = doc.getElementById(formId);
@@ -99,6 +104,10 @@ public class HttpClientUtils {
         if (context.isLog()) {
             System.out.println(String.format("Content: %s\n, Status:%s\n, Headers:%s", res.getContent(),
                     res.getCode(), res.getHeaders()));
+        }
+
+        if (response.getFirstHeader(COOKIE_HEADER) != null) {
+            res.setCookies(Arrays.asList(response.getFirstHeader(COOKIE_HEADER).toString().split(",")));
         }
 
         return res;

@@ -3,17 +3,17 @@ package com.simple_bot.utils.http;
 import com.simple_bot.app.AppContext;
 import org.apache.http.NameValuePair;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
- * @author Иван
+ * @author пїЅпїЅпїЅпїЅ
  * @version $Id$
  */
 public class HttpRequestContext {
     private String url;
     private String cookies;
-    private List<NameValuePair> params;
+    private Set<NameValuePair> params;
     private Map<String, String> headers;
     private boolean log;
     private boolean report;
@@ -34,11 +34,11 @@ public class HttpRequestContext {
         this.cookies = cookies;
     }
 
-    public List<NameValuePair> getParams() {
+    public Set<NameValuePair> getParams() {
         return params;
     }
 
-    public void setParams(List<NameValuePair> params) {
+    public void setParams(Set<NameValuePair> params) {
         this.params = params;
     }
 
@@ -69,7 +69,7 @@ public class HttpRequestContext {
     public static class Builder {
         private String url;
         private String cookies;
-        private List<NameValuePair> params;
+        private Set<NameValuePair> params;
         private Map<String, String> headers;
 
         public Builder setUrl(String url) {
@@ -82,7 +82,7 @@ public class HttpRequestContext {
             return this;
         }
 
-        public Builder setParams(List<NameValuePair> params) {
+        public Builder setParams(Set<NameValuePair> params) {
             this.params = params;
             return this;
         }
