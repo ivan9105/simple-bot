@@ -7,8 +7,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class PropertiesUtils {
     public static final String HEADER = "header";

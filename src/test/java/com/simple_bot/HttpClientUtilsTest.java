@@ -3,7 +3,7 @@ package com.simple_bot;
 import com.simple_bot.app.AppContext;
 import com.simple_bot.dto.BaseResponse;
 import com.simple_bot.utils.HtmlReportUtils;
-import com.simple_bot.utils.builder.FormMapUtils;
+import com.simple_bot.utils.builder.MapUtils;
 import com.simple_bot.utils.http.HttpClientUtils;
 import com.simple_bot.utils.http.HttpRequestContext;
 import org.apache.http.HttpStatus;
@@ -22,8 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 
 /**
- * @author ����
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class HttpClientUtilsTest extends TestCase {
     private static final String GOOGLE_ACCOUNTS_URL = "https://accounts.google.com/ServiceLoginAuth";
@@ -49,12 +48,12 @@ public class HttpClientUtilsTest extends TestCase {
     }
 
     @Test
-    public void doScenarioTest() throws IOException {
+    public void googleAuthScenarioTest() throws IOException {
         BaseResponse get1 = HttpClientUtils.doGet(new HttpRequestContext.Builder()
                 .setUrl(GOOGLE_ACCOUNTS_URL)
                 .build());
 
-        Map<String, String> params = FormMapUtils.of(
+        Map<String, String> params = MapUtils.of(
                 "Email", "ivan.melnikov.haulmont3",
                 "Passwd", "050391zx");
 
@@ -63,7 +62,7 @@ public class HttpClientUtilsTest extends TestCase {
 
         BaseResponse post1 = HttpClientUtils.doPost(new HttpRequestContext.Builder()
                 .setUrl(GOOGLE_ACCOUNTS_URL)
-                .setHeaders(FormMapUtils.of(
+                .setHeaders(MapUtils.of(
                         HOST, GOOGLE_ACCOUNTS_HOST,
                         CONNECTION, GOOGLE_CONNECTION,
                         REFERRER, GOOGLE_ACCOUNTS_REFERRER,
@@ -78,7 +77,7 @@ public class HttpClientUtilsTest extends TestCase {
             String confirmAccountUrl = content1.substring(
                     content1.indexOf("https://accounts.google.com"),
                     content1.indexOf("\">here"));
-            //Todo dubug using fiddler or other soft
+            //Todo dubug using fiddler or other http analyzer
         } else {
             BaseResponse get2 = HttpClientUtils.doGet(new HttpRequestContext.Builder()
                     .setUrl(GOOGLE_MAIL_URL)

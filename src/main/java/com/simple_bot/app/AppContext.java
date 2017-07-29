@@ -9,8 +9,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class AppContext {
     private static Map<String, String> propertiesMap = new ConcurrentHashMap<>();

@@ -7,8 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author ����
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class HttpRequestContext {
     private String url;

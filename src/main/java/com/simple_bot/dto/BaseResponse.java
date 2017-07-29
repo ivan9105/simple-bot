@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class BaseResponse {
     private String content;

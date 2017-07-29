@@ -4,11 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
-public class FormMapUtils {
-    private FormMapUtils() {
+public class MapUtils {
+    private MapUtils() {
     }
 
     public static Map<String, String> of(String paramName, String paramValue) {

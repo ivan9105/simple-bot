@@ -4,8 +4,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class HttpClientLazySingleton {
     private static class HttpClientHolder {

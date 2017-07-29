@@ -25,8 +25,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author Иван
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class HttpClientUtils {
     private static final String USER_AGENT = "User-Agent";

@@ -4,8 +4,7 @@ import com.simple_bot.app.AppContext;
 import org.junit.Before;
 
 /**
- * @author ����
- * @version $Id$
+ * @author ivan-melnikov
  */
 public class TestCase {
     @Before
