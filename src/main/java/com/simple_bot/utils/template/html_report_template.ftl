@@ -18,29 +18,29 @@
 <body>
     <h2>Steps</h2>
     <#list steps as step>
-        ${step_index + 1}) <b>step.request</b><br/>
+        ${step_index + 1}) <b>step.request.url</b><br/>
         <b>Request:</b>
         <div>
             <b>Cookie:</b><br/>
-            <div>${cookie}</div><br/>
+            <div>${step.request.cookies}</div><br/>
             <b>Header:</b><br/>
-            <div>${header}</div><br/>
-            <#if params?size != 0>
-                <#list params as param>
-                    ${param_index + 1})
+            <div>${step.request.header}</div><br/>
+            <#if step.request.params?size != 0>
+                <#list step.request.params as param>
+                    ${param_index + 1}) <b>${param.name}</b>: ${param.value}<br/>
                 </#list>
             </#if>
         </div>
         <b>Response:</b>
         <div>
             <b>Http status:</b><br/>
-            <div>${status}</div><br/>
+            <div>${step.response.status}</div><br/>
             <b>Header:</b><br/>
-            <div>${header}</div><br/>
+            <div>${step.response.header}</div><br/>
             <b>Cookie:</b><br/>
-            <div>${cookie}</div><br/>
+            <div>${step.response.cookies}</div><br/>
             <b>Content:</b><br/>
-            <div>${content}</div><br/>
+            <div>${step.response.content}</div><br/>
         </div><br/>
     </#list>
 </body>
