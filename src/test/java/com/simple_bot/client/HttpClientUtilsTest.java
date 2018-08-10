@@ -1,8 +1,8 @@
-package com.simple_bot;
+package com.simple_bot.client;
 
+import com.simple_bot.AbstractClientTestCase;
 import com.simple_bot.app.AppContext;
 import com.simple_bot.dto.BaseResponse;
-import com.simple_bot.utils.HtmlReportUtils;
 import com.simple_bot.utils.builder.MapUtils;
 import com.simple_bot.utils.http.HttpClientUtils;
 import com.simple_bot.utils.http.HttpRequestContext;
@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author ivan-melnikov
  */
-public class HttpClientUtilsTest extends TestCase {
+public class HttpClientUtilsTest extends AbstractClientTestCase {
     private static final String GOOGLE_ACCOUNTS_URL = "https://accounts.google.com/ServiceLoginAuth";
     private static final String GOOGLE_MAIL_URL = "https://mail.google.com/mail/";
     private static final String GOOGLE_ACCOUNTS_HOST = "accounts.google.com";

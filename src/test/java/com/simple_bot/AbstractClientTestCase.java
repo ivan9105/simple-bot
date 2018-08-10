@@ -6,7 +6,7 @@ import org.junit.Before;
 /**
  * @author ivan-melnikov
  */
-public class TestCase {
+public class AbstractClientTestCase {
     @Before
     public void setUp() {
         AppContext.startContext();
