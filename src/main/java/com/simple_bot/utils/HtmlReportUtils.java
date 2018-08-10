@@ -78,6 +78,7 @@ public class HtmlReportUtils {
 
     private static List<Step.Request.Param> toParams(Set<NameValuePair> pairs) {
         //Todo
+        return Collections.emptyList();
     }
 
     private static String toHeaderStr(Map<String, String> headerMap) {

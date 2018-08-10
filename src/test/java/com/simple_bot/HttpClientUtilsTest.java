@@ -83,10 +83,11 @@ public class HttpClientUtilsTest extends TestCase {
                     .setUrl(GOOGLE_MAIL_URL)
                     .build());
         }
+        //Todo use JSoup
 
 
-        HtmlReportUtils.buildReport("doScenarioTest");
-        HtmlReportUtils.clear();
+//        HtmlReportUtils.buildReport("doScenarioTest");
+//        HtmlReportUtils.clear();
     }
 
 
