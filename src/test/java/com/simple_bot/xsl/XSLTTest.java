@@ -1,15 +1,12 @@
 package com.simple_bot.xsl;
 
-import com.simple_bot.AbstactXSLTTest;
-import org.apache.commons.io.IOUtils;
+import com.simple_bot.AbstractXSLTTest;
 import org.junit.Test;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-
-public class XSLTTest extends AbstactXSLTTest {
+public class XSLTTest implements AbstractXSLTTest {
     @Test
     public void test_xmlToHtmlForEach() throws TransformerException, IOException {
         checkXmlToHtml("/xsl/for_each/for_each");
@@ -17,18 +14,6 @@ public class XSLTTest extends AbstactXSLTTest {
 
     @Test
     public void test_xmlToHtmlValueOf() throws TransformerException, IOException {
-        //Todo
+        checkXmlToHtml("/xsl/value_of/value_of");
     }
-
-    private void checkXmlToHtml(String path) throws IOException, TransformerException {
-        assertEquals(getResult(path), xmlToHtml(path));
-    }
-
-    private String getResult(String path) throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream(path + ".html"));
-    }
-
-
-
-
 }
