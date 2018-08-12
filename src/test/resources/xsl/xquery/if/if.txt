@@ -1,0 +1,4 @@
+<other>Learn Java in 24 Hours</other>
+<other>Learn .Net in 24 hours</other>
+<xml>Learn XQuery in 24 hours</xml>
+<xml>Learn XPath in 24 hours</xml>
