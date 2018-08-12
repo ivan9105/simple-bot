@@ -33,6 +33,6 @@ public interface AbstractXQueryTest {
     }
 
     default String replaceLineBreak(String str) {
-        return str.replaceAll("\r\n", "").replaceAll("\n", "");
+        return str.replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(" ", "");
     }
 }

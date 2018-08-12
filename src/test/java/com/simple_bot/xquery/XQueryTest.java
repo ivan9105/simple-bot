@@ -26,4 +26,14 @@ public class XQueryTest implements AbstractXQueryTest {
     public void test_If() throws XQException, IOException {
         checkEvaluate("/xsl/xquery/if/if");
     }
+
+    @Test
+    public void test_Add() throws XQException, IOException {
+        checkEvaluate("/xsl/xquery/add/add");
+    }
+
+    @Test
+    public void test_Functions() throws XQException, IOException {
+        checkEvaluate("/xsl/xquery/functions/functions");
+    }
 }

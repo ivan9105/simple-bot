@@ -1,0 +1,10 @@
+<html>
+<body><h1>Bookstore</h1>
+<ul>
+    <li>Learn.Netin24hours.Category:DOTNET.<p>DiscountPrice:36.45</p></li>
+    <li>LearnJavain24Hours.Category:JAVA.<p>DiscountPrice:27</p></li>
+    <li>LearnXPathin24hours.Category:XML.<p>DiscountPrice:14.85</p></li>
+    <li>LearnXQueryin24hours.Category:XML.<p>DiscountPrice:45</p></li>
+</ul>
+</body>
+</html>
