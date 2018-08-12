@@ -16,4 +16,24 @@ public class XSLTTest implements AbstractXSLTTest {
     public void test_xmlToHtmlValueOf() throws TransformerException, IOException {
         checkXmlToHtml("/xsl/value_of/value_of");
     }
+
+    @Test
+    public void test_xmlToHtmlSort() throws TransformerException, IOException {
+        checkXmlToHtml("/xsl/sort/sort");
+    }
+
+    @Test
+    public void test_xmlToHtmlIf()throws TransformerException, IOException {
+        checkXmlToHtml("/xsl/if/if");
+    }
+
+    @Test
+    public void test_xmlToHtmlChoose()throws TransformerException, IOException {
+        checkXmlToHtml("/xsl/choose/choose");
+    }
+
+    @Test
+    public void test_xmlToHtmlApplyTemplates()throws TransformerException, IOException {
+        checkXmlToHtml("/xsl/apply_templates/apply_templates");
+    }
 }

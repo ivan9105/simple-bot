@@ -22,7 +22,7 @@ public interface AbstractXSLTTest {
         TransformerFactory tFactory = TransformerFactory.newInstance();
         Transformer trasform = tFactory.newTransformer(xslt);
         trasform.transform(xml, new StreamResult(sw));
-        return sw.toString();
+        return replaceSpace(sw.toString());
     }
 
     default void checkXmlToHtml(String path) throws IOException, TransformerException {
@@ -30,6 +30,10 @@ public interface AbstractXSLTTest {
     }
 
     default String getResult(String path) throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream(path + ".html"));
+        return replaceSpace(IOUtils.toString(this.getClass().getResourceAsStream(path + ".html")));
+    }
+
+    default String replaceSpace(String str) {
+        return str.replaceAll(" ", "");
     }
 }
